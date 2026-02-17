@@ -1,0 +1,14 @@
+name: Test Secret
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    env:
+      DB_PASS: ${{ secrets.DB_PASS }}
+
+    steps:
+      - uses: actions/checkout@v3
+      - run: echo $DB_PASS
